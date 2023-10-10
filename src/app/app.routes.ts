@@ -18,5 +18,10 @@ export const routes: Routes = [
         path: 'funcionarios-crud',
         loadChildren: ()=> 
             import('./pages/funcionarios-crud/funcionarios.router').then((routes) => routes.funcionariosRouter)
+    },
+    {
+        path: '**',
+        component: InicioComponent,
+        title: 'inicio'
     }    
 ];
