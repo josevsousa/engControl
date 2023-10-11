@@ -18,5 +18,10 @@ export const funcionariosRouter: Routes = [
      path: 'funcionario-del',
      component: FuncionariosDelComponent,
      title: 'funcionario-del'
+  },
+  {
+   path: '**',
+   component: FuncionariosListComponent,
+   title: 'funcionario-list'
   }   
  ]
