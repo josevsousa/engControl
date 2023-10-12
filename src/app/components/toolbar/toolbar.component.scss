@@ -1,0 +1,25 @@
+#logo{
+    height: 75%;
+    margin-right: 5px;
+}
+
+.avatar{
+    height: 66% !important;
+    border-radius: 50%;
+    border: 3px #628fb3 solid;
+}
+
+#barra{
+// background: linear-gradient(to right,  #76b2db 0%,#cfe7fa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+/* Permalink - use to edit and share this gradient. Link permanente - use para editar e compartilhar este gradiente: https://colorzilla.com/gradient-editor/#a7cfdf+0,23538a+100;Blue+3d+%238 */
+background: linear-gradient(to right,  #a7cfdf 0%,#23538a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.corAzul{
+    color: #ecf7ff;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
