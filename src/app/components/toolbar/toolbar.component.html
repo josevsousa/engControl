@@ -1,8 +1,21 @@
 <p>
+<ng-container>
     <mat-toolbar id="barra">
-    <img id="logo" src="../../../assets/icons/64_eng_control.png" alt="">    
-    <span class="corAzul">Eng Control</span>
-    <span class="example-spacer"></span>
-    <img class="avatar" src="../../../assets/temp/a.jpg" alt="">    
+        <!-- <img id="logo" src="../../../assets/icons/64_eng_control.png" alt="">     -->
+        <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="corAzul">Eng Control</span>
+        <span class="example-spacer"></span>
+        <ng-container *ngIf="getUser()|async as user; else desc">
+            <ng-container *ngIf="user.user != null; else desc">
+                <img class="avatar" [src]="user.user.photoURL" alt="">    
+            </ng-container>
+        </ng-container>
+
     </mat-toolbar>
+    <ng-template #desc>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="lock"></mat-icon>
+    </ng-template>
+</ng-container>
 </p>

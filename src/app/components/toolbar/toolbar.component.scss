@@ -23,3 +23,11 @@ background: linear-gradient(to right,  #a7cfdf 0%,#23538a 100%); /* W3C, IE10+, 
     flex: 1 1 auto;
   }
   
+.mat-icon{
+    color: aliceblue;
+}
+
+mat-spinner{
+    height: 40px !important;
+    width: 40px !important;
+}

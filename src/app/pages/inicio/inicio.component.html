@@ -1,1 +1,26 @@
-<p>inicio works!</p>
+
+ <ng-container *ngIf=" getUser()|async as user; else loading">
+    <ng-container *ngIf="(user.user !== null); else desconect">
+        <section>
+            <img [src]="user.user.photoURL" class="photoURL" alt="">
+        </section>
+        <section> 
+            <h1>{{user.user.displayName}}</h1> 
+        </section>
+        <section>
+            <button color="warn"  (click)="desconectarGoogle()">Desconectar</button>
+        </section>
+    </ng-container>
+</ng-container>
+
+
+<ng-template #desconect>
+    <button  (click)="loginGoogle()">conect</button>
+</ng-template>
+ 
+
+<!-- CARREGANDO -->
+<ng-template class="spinner" #loading>
+    <br><br>
+    <mat-spinner></mat-spinner>
+</ng-template>    
