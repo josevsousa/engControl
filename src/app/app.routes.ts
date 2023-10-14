@@ -1,18 +1,25 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guardRouter/auth.guard';
 
 import { LoginComponent } from './pages/login/login.component';
-import InicioComponent from './pages/inicio/inicio.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
     {
         path: '',
-        component: InicioComponent,
-        title: 'inicio'
+        pathMatch: 'full',
+        redirectTo: '/login'
     },
     {
-        path: 'inicio',
+        path: 'login',
         component: LoginComponent,
-        title: 'login'
+        title: "login"
+    },
+    {
+        path: 'dashboard',
+        component: DashboardComponent,
+        title: "Dashboard"
+        // canActivate: [authGuard]
     },
     {
         path: 'funcionarios-crud',
@@ -20,8 +27,9 @@ export const routes: Routes = [
             import('./pages/funcionarios-crud/funcionarios.router').then((routes) => routes.funcionariosRouter)
     },
     {
-        path: '**',
-        component: InicioComponent,
-        title: 'inicio'
-    }    
+        path: "**",
+        component: LoginComponent,
+        title: "login"
+    }
+
 ];

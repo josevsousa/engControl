@@ -1,1 +1,12 @@
-<p>login works!</p>
+<ng-container *ngIf=" getUser()|async as user">
+    <ng-container *ngIf="(user.user !== null); else desconect">
+        <section>
+            <button color="warn"  (click)="desconectarGoogle()">Desconectar</button>
+        </section>
+    </ng-container>
+</ng-container>
+
+<ng-template #desconect>
+    <button  (click)="loginGoogle()">conect</button>
+</ng-template>
+ 
