@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginService } from 'src/app/services/login.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -12,6 +14,8 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent {
 
   auth: LoginService = inject(LoginService);
+  
+  constructor(private router: Router){}
 
   loginGoogle(){
     this.auth.loginGoogle();
@@ -23,6 +27,12 @@ export class LoginComponent {
 
   getUser(){
     return this.auth.user$;
+  }
+
+  login(){
+    console.log('Login action');
+    localStorage.setItem('token', Math.random().toString());
+    this.router.navigate(['dashboard']);
   }
 
 }

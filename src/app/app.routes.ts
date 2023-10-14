@@ -1,14 +1,17 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './guardRouter/auth.guard';
 
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+// import { AuthClassGuard } from './guardRouter/auth-class.guard';
+import { authGuard } from './guardRouter/auth.guard';
+import { roleGuard } from './guardRouter/role.guard';
+import { loginGuard } from './guardRouter/login.guard';
 
 export const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/login'
+        redirectTo: '/login',
     },
     {
         path: 'login',
@@ -18,8 +21,11 @@ export const routes: Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent,
-        title: "Dashboard"
-        // canActivate: [authGuard]
+        title: "Dashboard",
+        canActivate: [authGuard, roleGuard],
+        data: {
+            role: 'ADMIN'
+        }
     },
     {
         path: 'funcionarios-crud',

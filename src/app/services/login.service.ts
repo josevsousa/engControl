@@ -10,7 +10,6 @@ import { map } from 'rxjs';
 })
 export class LoginService {
 
-  
   user$ = this.auth.authState.pipe(
     map(user => ({user}))
   )
