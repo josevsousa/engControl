@@ -1,21 +1,17 @@
 import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
-
-// const router = new Router();
-
+import { LoginService } from '../services/login.service';
 export const authGuard: CanActivateFn = (route, state) => {
   
   const router: Router = inject(Router);
-  const token = localStorage.getItem('token');
- 
-  console.log('********** Estou no authGuard');
-  console.log('********** token', token);
 
-  if (token) {
+  if (true) {
+    // mostrar dashboard
     return true;
   } else {
+    // nao mostrar dashboard
     router.navigate(['login']);
     return false;
   }
-  
+
 };

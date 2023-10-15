@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent {
 
   router: Router = inject(Router);
+  auth: LoginService = inject(LoginService);
 
   constructor(){
     console.log('estou na dashboard');
@@ -20,8 +22,8 @@ export class DashboardComponent {
   logout(){
     const confirmation = confirm('Deseja mesmo sair?');
     if(confirmation){
-      localStorage.removeItem('token');
-      this.router.navigate(['login'])
+      // localStorage.removeItem('token');
+      this.auth.desconectarGoogle();
     }
   }
 

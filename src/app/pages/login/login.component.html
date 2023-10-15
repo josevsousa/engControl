@@ -1,4 +1,4 @@
-<!-- <ng-container *ngIf=" getUser()|async as user">
+<ng-container *ngIf=" getUser()|async as user">
     <ng-container *ngIf="(user.user !== null); else desconect">
         <section>
             <button color="warn"  (click)="desconectarGoogle()">Desconectar</button>
@@ -9,14 +9,4 @@
 <ng-template #desconect>
     <button  (click)="loginGoogle()">conect</button>
 </ng-template>
-  -->
-
-<div>
-    <div>
-        <input placeholder="Enter user">
-    </div>
-    <div>
-        <input placeholder="Enter passaword">
-    </div>
-    <button (click)="login()">Login</button>
-</div>
+ 

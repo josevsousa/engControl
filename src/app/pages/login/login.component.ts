@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginService } from 'src/app/services/login.service';
 
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent {
   constructor(private router: Router){}
 
   loginGoogle(){
-    this.auth.loginGoogle();
+    this.auth.loginGoogle()
   }
 
   desconectarGoogle(){
@@ -29,10 +30,5 @@ export class LoginComponent {
     return this.auth.user$;
   }
 
-  login(){
-    console.log('Login action');
-    localStorage.setItem('token', Math.random().toString());
-    this.router.navigate(['dashboard']);
-  }
 
 }

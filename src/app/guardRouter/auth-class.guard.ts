@@ -1,30 +1,40 @@
 import { Injectable, inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { LoginService } from '../services/login.service';
+import { Primitive } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthClassGuard {
   
-  constructor( private router: Router ){}
+  constructor( 
+    private router: Router,
+    private loginService: LoginService
+    ){}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      // console.log(route);
-      // console.log(state);
-      // // const router: Router = inject(Router);
-      const token = localStorage.getItem('token');
-      // console.log('Estou no authGuard');
-      // console.log('token', token);
-    
-      if (token) {
-        return false;
-        this.router.navigate(['dashboard']);
-      } else {
-        return true;
-      } 
+  canActivate(): Promise<boolean> {
+
+
+      return new Promise(resolve => {
+      // this.loginService.user$.subscribe(
+      //   user => {
+      //   if(!user) this.router.navigate(['login']);
+      //   resolve(user ? false: true);
+      //   }
+      // )  
+
+      this.loginService.user$.subscribe(user => {
+        if (user.user?.uid !== undefined) {
+            resolve(true);
+        } else {
+          this.router.navigate(['login']);
+        }
+      })
+
+    })
+      
 
   }
   
