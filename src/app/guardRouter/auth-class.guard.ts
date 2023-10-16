@@ -15,27 +15,15 @@ export class AuthClassGuard {
     ){}
 
   canActivate(): Promise<boolean> {
-
-
-      return new Promise(resolve => {
-      // this.loginService.user$.subscribe(
-      //   user => {
-      //   if(!user) this.router.navigate(['login']);
-      //   resolve(user ? false: true);
-      //   }
-      // )  
-
+    return new Promise(resolve => {
       this.loginService.user$.subscribe(user => {
-        if (user.user?.uid !== undefined) {
-            resolve(true);
+        if (user.user) {
+          resolve(true);
         } else {
           this.router.navigate(['login']);
         }
       })
-
     })
-      
-
   }
   
 }

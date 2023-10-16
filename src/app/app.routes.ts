@@ -21,9 +21,9 @@ export const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         title: "Dashboard",
-        canActivate: [AuthClassGuard, roleGuard],
+        canActivate: [authGuard, roleGuard],
         data: {
-            role: 'ADMIN'
+            cargo: 'ADMIN'
         }
     },
     {
@@ -33,8 +33,8 @@ export const routes: Routes = [
     },
     {
         path: "**",
-        component: LoginComponent,
-        title: "login"
+        pathMatch: 'full',
+        redirectTo: '/login'
     }
 
 ];

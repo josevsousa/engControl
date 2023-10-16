@@ -3,15 +3,15 @@ import { CanActivateFn, Router } from '@angular/router';
 
 export const roleGuard: CanActivateFn = (route, state) => {
   
-  const role = route.data['role'];
+  const cargo = route.data['cargo'];
   const router = inject(Router);
   
-  if (role === 'ADMIN') {
+  if (cargo === 'ADMIN') {
     return true;
   } else {
     router.navigate(['login'])
     return false;    
   }
-  return true;
+  // return true;
 
 };
