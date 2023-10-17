@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AuthClassGuard } from './guardRouter/auth-class.guard';
 import { authGuard } from './guardRouter/auth.guard';
+import { loginGuard } from './guardRouter/login.guard';
 import { roleGuard } from './guardRouter/role.guard';
 
 export const routes: Routes = [
@@ -16,15 +17,16 @@ export const routes: Routes = [
         path: 'login',
         component: LoginComponent,
         title: "login",
+        canActivate: [loginGuard]
     },
     {
         path: 'dashboard',
         component: DashboardComponent,
         title: "Dashboard",
-        // canActivate: [authGuard, roleGuard],
-        // data: {
-        //     cargo: 'ADMIN'
-        // }
+        canActivate: [authGuard, roleGuard],
+        data: {
+            cargo: 'ADMIN'
+        }
     },
     {
         path: 'funcionarios-crud',

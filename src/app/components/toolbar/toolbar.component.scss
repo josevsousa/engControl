@@ -12,7 +12,7 @@
 #barra{
 // background: linear-gradient(to right,  #76b2db 0%,#cfe7fa 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 /* Permalink - use to edit and share this gradient. Link permanente - use para editar e compartilhar este gradiente: https://colorzilla.com/gradient-editor/#a7cfdf+0,23538a+100;Blue+3d+%238 */
-background: linear-gradient(to right,  #a7cfdf 0%,#23538a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background: linear-gradient(to right,  #a7cfdf -10%,#23538a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .corAzul{
@@ -27,9 +27,13 @@ background: linear-gradient(to right,  #a7cfdf 0%,#23538a 100%); /* W3C, IE10+, 
     color: aliceblue;
 }
 
+.matIconbar{
+    margin-right: 10px;
+}
 mat-spinner{
     height: 40px !important;
     width: 40px !important;
+    --mdc-circular-progress-active-indicator-color: #628fb3;
 }
 
 

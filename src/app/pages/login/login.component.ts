@@ -14,18 +14,22 @@ import { map } from 'rxjs';
 })
 export class LoginComponent {
 
+  router: Router = inject(Router);
   auth: LoginService = inject(LoginService);
-  status = false;  
-  
-  constructor(private router: Router){
-    this.auth.user$.subscribe((user)=>{
-      if(user.user){
-        this.status = true;
-      }else{
-        this.status = false;
-      }
-    })
-  }
+
+
+  /* OPACAO-1 DE PEGAR O USUARIO CONECTADO E CONTROLOAR NO TS */
+  // conectado = false;  
+  // ngOnInit(){
+  //   this.auth.user$.subscribe((user)=>{
+  //     if(user.user){
+
+  //       this.conectado = true;
+  //     }else{
+  //       this.conectado = false;
+  //     }
+  //   })
+  // }
 
   loginGoogle(){
     this.auth.loginGoogle()
@@ -35,6 +39,8 @@ export class LoginComponent {
     this.auth.desconectarGoogle()
   }
 
+  
+  /* OPACAO-2 DE PEGAR O USUARIO CONECTADO E CONTROLAR NO TAMPLATE */
   getUser(){
     return this.auth.user$;
   }

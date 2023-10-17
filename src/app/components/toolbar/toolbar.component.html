@@ -57,34 +57,24 @@
         
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
         <span class="corAzul">Eng Control</span>
         <span class="example-spacer"></span>
-        <ng-container *ngIf="getUser() |async as user; else desc">
+        <ng-container *ngIf="getUser() |async as user; else load">
             <ng-container *ngIf="user.user != null; else desc">
                 <img class="avatar" [src]="user.user.photoURL" alt="">    
             </ng-container>
-        </ng-container> -->
-
+        </ng-container>
+        <ng-template #load>
+          <mat-spinner></mat-spinner>
+        </ng-template>
+        
+        <ng-template #desc>
+          <mat-icon class="matIconbar" aria-hidden="false" aria-label="Example home icon" fontIcon="lock"></mat-icon>
+        
+        </ng-template>
     </mat-toolbar>
-    <ng-template #desc>
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="lock"></mat-icon>
-    </ng-template>
+
+
 </ng-container>
 </p>
 

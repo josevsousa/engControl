@@ -1,20 +1,20 @@
 import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { LoginService } from '../services/login.service';
-export const authGuard: CanActivateFn = (route, state) => {
+export const loginGuard: CanActivateFn = (route, state) => {
   
   const router: Router = inject(Router);
   const loginService: LoginService = inject(LoginService);
 
   return new Promise(resolve => {
     loginService.user$.subscribe(user => {
-      // se tiver um user devolva true para o return
+      // se tiver um user não mostrar essa tela login
       if (user.user) {
-        console.log('dentro do auth.guard tem um user.user');
-        resolve(true);
-      } else {
-        router.navigate(['login']);
+        // não mostrar essa tela login e enviar para o dashbord
+        router.navigate(['dashboard']);
         resolve(false);
+      } else {
+        resolve(true);
       }
     })
   })
