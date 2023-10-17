@@ -14,16 +14,16 @@ export class AuthClassGuard {
     private loginService: LoginService
     ){}
 
-  canActivate(): Promise<boolean> {
-    return new Promise(resolve => {
-      this.loginService.user$.subscribe(user => {
-        if (user.user) {
-          resolve(true);
-        } else {
-          this.router.navigate(['login']);
-        }
-      })
-    })
-  }
+  // canActivate(): Promise<boolean> {
+  //   return new Promise(resolve => {
+  //     this.loginService.user$.subscribe(user => {
+  //       if (user.user) {
+  //         resolve(true);
+  //       } else {
+  //         this.router.navigate(['login']);
+  //       }
+  //     })
+  //   })
+  // }
   
 }

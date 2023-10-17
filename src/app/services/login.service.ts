@@ -28,12 +28,12 @@ export class LoginService {
 
   loginGoogle(){
     this.auth.signInWithPopup(new GoogleAuthProvider())
-      .then(()=>{
+     .then(()=>{
         this.router.navigate(['dashboard']);
-
       })
       .catch((error)=> console.log(error))
   }
+
 
   desconectarGoogle(){
     this.auth.signOut().then(()=>{
@@ -41,8 +41,14 @@ export class LoginService {
     });
   } 
 
-  userConectado(){
-    console.log(this.user$)
+  // retorna status do user
+  statusUser(){
+    const  authUser = getAuth();
+    if (authUser.currentUser !== null) {
+      return true;
+    } else {
+      return false; 
+    }
   }
   
 }

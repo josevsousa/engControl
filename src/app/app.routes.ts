@@ -21,10 +21,10 @@ export const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         title: "Dashboard",
-        canActivate: [authGuard, roleGuard],
-        data: {
-            cargo: 'ADMIN'
-        }
+        // canActivate: [authGuard, roleGuard],
+        // data: {
+        //     cargo: 'ADMIN'
+        // }
     },
     {
         path: 'funcionarios-crud',

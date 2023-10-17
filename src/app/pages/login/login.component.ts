@@ -15,8 +15,17 @@ import { map } from 'rxjs';
 export class LoginComponent {
 
   auth: LoginService = inject(LoginService);
+  status = false;  
   
-  constructor(private router: Router){}
+  constructor(private router: Router){
+    this.auth.user$.subscribe((user)=>{
+      if(user.user){
+        this.status = true;
+      }else{
+        this.status = false;
+      }
+    })
+  }
 
   loginGoogle(){
     this.auth.loginGoogle()
@@ -29,6 +38,5 @@ export class LoginComponent {
   getUser(){
     return this.auth.user$;
   }
-
 
 }
