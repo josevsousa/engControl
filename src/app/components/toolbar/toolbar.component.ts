@@ -5,9 +5,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { LoginService } from 'src/app/services/login.service';
+import { Router, RouterLink } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,8 @@ import { LoginService } from 'src/app/services/login.service';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    RouterLink
   ],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
@@ -27,6 +29,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class ToolbarComponent {
 
   auth: LoginService = inject(LoginService);
+  router: Router = inject(Router);
 
   getUser(){
     return this.auth.user$;
