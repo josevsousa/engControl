@@ -14,7 +14,6 @@ export class LoginService {
   
   //  authUser = getAuth();
   // userLogad = this.authUser.currentUser;
-  userLogad = true;
 
   user$ = this.auth.authState.pipe(
     map(user => ({

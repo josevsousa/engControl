@@ -1,9 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { CommonModule, NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule,} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -11,17 +12,15 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
   imports: [
     CommonModule, 
     RouterOutlet,
-    ToolbarComponent
+    ToolbarComponent,
+    MatSidenavModule,
+    MatButtonModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'eng-control';
-
+export class AppComponent {
+  showFiller = false;
   
- 
-  ngOnInit(){
-  }
 
 }

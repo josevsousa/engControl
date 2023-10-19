@@ -11,6 +11,7 @@ import { LoginService } from 'src/app/services/login.service';
 import { Router, RouterLink } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-toolbar',
   standalone: true,
@@ -27,7 +28,6 @@ import { Router, RouterLink } from '@angular/router';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
-
   auth: LoginService = inject(LoginService);
   router: Router = inject(Router);
 
