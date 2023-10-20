@@ -1,10 +1,18 @@
-
-<ng-container>
+<div >
+<ng-container >
     <mat-toolbar id="barra">
-        <!-- <img id="logo" src="../../../assets/icons/64_eng_control.png" alt="">     -->
-        
-      
+        <button [matMenuTriggerFor]="menu" mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
 
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item routerLink="/deshboard"><mat-icon>home</mat-icon>Deshboard
+          </a>
+          <a mat-menu-item routerLink="/funcionarios-crud"><mat-icon>settings_accessibility</mat-icon>Funcionarios
+          </a>
+          <a mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon>Sair
+          </a>
+        </mat-menu>
 
 
         <span class="corAzul">Eng Control</span>
@@ -22,7 +30,6 @@
         </ng-template>
     </mat-toolbar>
     
-
-
 </ng-container>
+</div>
 

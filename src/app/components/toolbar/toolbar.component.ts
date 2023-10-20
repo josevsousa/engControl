@@ -8,7 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { LoginService } from 'src/app/services/login.service';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 
 
@@ -22,7 +22,8 @@ import { Router, RouterLink } from '@angular/router';
     MatButtonModule,
     MatMenuModule,
     MatProgressSpinnerModule,
-    RouterLink
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
@@ -33,6 +34,10 @@ export class ToolbarComponent {
 
   getUser(){
     return this.auth.user$;
+  }
+
+  logout(): void{
+    this.auth.desconectarGoogle();
   }
 
 }
