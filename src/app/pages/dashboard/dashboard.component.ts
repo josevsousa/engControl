@@ -30,15 +30,6 @@ export class DashboardComponent {
     });
   }
 
-
-  logout(){
-    console.log("desconectando do google")
-    // const confirmation = confirm('Deseja mesmo sair?');
-    // if(confirmation){
-    //   this.auth.desconectarGoogle();
-    // }
-  }
-
 }
 
 // --------------------------------------------------------

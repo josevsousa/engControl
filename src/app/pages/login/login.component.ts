@@ -5,10 +5,13 @@ import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
 
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule, MatIconModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

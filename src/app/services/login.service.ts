@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginService {
   router: Router = inject(Router);
   
+  
   //  authUser = getAuth();
   // userLogad = this.authUser.currentUser;
 

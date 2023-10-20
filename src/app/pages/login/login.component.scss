@@ -3,3 +3,23 @@
     flex-direction: column;
     align-items: center;
   }
+
+
+.btBox{
+  background: #e6f4ff;
+  padding: 8px 15px ;
+  display: flex;
+  align-items: center;
+  border-radius: 40px;
+}
+
+.btImg{
+  color: white;
+  margin-right: 7px;
+}
+
+.btNome{
+  font-size: large;
+  color: #6b8ab7;
+  float: right;
+}

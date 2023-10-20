@@ -1,4 +1,36 @@
-<app-toolbar></app-toolbar>
+
+<!-- ------------------------------TOOLBAR----------------------------- -->
+<mat-toolbar id="barra" class="example-toolbar">
+    <button mat-icon-button (click)="sidnav.open()">
+        <mat-icon class="mat-icon-color">menu</mat-icon>
+    </button>
+    <span class="corAzul">Eng Control</span>
+    <span class="example-spacer"></span>
+    <ng-container *ngIf="getUser() |async as user; else load">
+        <ng-container *ngIf="user.user != null; else desc">
+            <img class="avatar" [src]="user.user.photoURL" alt="">    
+        </ng-container>
+    </ng-container>
+    <ng-template #load>
+      <mat-spinner></mat-spinner>
+    </ng-template>
+    <ng-template #desc>
+      <mat-icon class="matIconbar mat-icon-color" aria-hidden="false" aria-label="Example home icon with a menu icon" fontIcon="lock"></mat-icon>
+    </ng-template>
+</mat-toolbar>
+<!-- --------------------------------SIDENAV------------------------------ -->   
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidnav>
+    <mat-nav-list (click)="sidnav.close()">
+        <a mat-list-item routerLink="dashboard" >Dashboard</a>
+        <a mat-list-item routerLink="funcionarios-crud" >Funcionarios</a>
+    </mat-nav-list>   
     
-<router-outlet></router-outlet>  
-     
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+  <!-- <router-outlet></router-outlet> -->
